@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KNIGHT AI VIDEO</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#070d16;color:#e8f0f5;
+  font-family:Arial,sans-serif;padding:22px;
+}
+.container{max-width:600px;margin:auto}
+header{text-align:center;padding:25px 0}
+.logo{font-size:34px;font-weight:bold;letter-spacing:3px;color:#42d6b0}
+.sub{color:#8295a8;font-size:13px;letter-spacing:2px}
+.card{
+  background:#101b29;border:1px solid #26394b;
+  border-radius:16px;padding:20px;margin-bottom:18px;
+}
+h2{font-size:17px;margin-top:0}
+label{display:block;margin-bottom:12px;color:#b9c9d8}
+input,textarea{
+  width:100%;padding:14px;border-radius:10px;
+  border:1px solid #34495c;background:#09121e;
+  color:white;font-size:15px;
+}
+textarea{min-height:125px;resize:vertical}
+.upload{
+  border:2px dashed #287e70;border-radius:12px;
+  padding:25px;text-align:center;color:#8fa9b9;
+}
+button{
+  width:100%;padding:16px;border:0;border-radius:10px;
+  background:#19b98d;color:#041510;font-weight:bold;
+  font-size:17px;margin-top:15px;
+}
+button:active{opacity:.8}
+#preview{width:100%;margin-top:15px;border-radius:10px;display:none}
+#status{color:#42d6b0;text-align:center;font-size:13px}
+footer{text-align:center;color:#617487;font-size:12px;margin:25px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="logo">⚔ KNIGHT AI</div>
+  <div class="sub">PERSONAL AI VIDEO STUDIO</div>
+</header>
+
+<div class="card">
+  <h2>01 — SOURCE IMAGE</h2>
+  <label>Unggah gambar referensi</label>
+  <div class="upload">
+    <input type="file" id="image" accept="image/*">
+    <p>Pilih gambar dari HP lu</p>
+    <img id="preview">
+  </div>
+</div>
+
+<div class="card">
+  <h2>02 — VIDEO PROMPT</h2>
+  <label>Jelaskan gerakan dan kamera</label>
+  <textarea id="prompt" placeholder="Describe the motion, camera movement and atmosphere..."></textarea>
+</div>
+
+<div class="card">
+  <h2>03 — GENERATION</h2>
+  <label>Model: Wan 2.2 (Image-to-Video)</label>
+  <button onclick="generate()">GENERATE VIDEO</button>
+  <p id="status">Studio siap digunakan. Mesin AI belum terhubung.</p>
+</div>
+
+<footer>KNIGHT AI VIDEO © 2026</footer>
+</div>
+
+<script>
+const imageInput=document.getElementById("image");
+const preview=document.getElementById("preview");
+
+imageInput.addEventListener("change",function(){
+  const file=this.files[0];
+  if(file){
+    preview.src=URL.createObjectURL(file);
+    preview.style.display="block";
+  }
+});
+
+function generate(){
+  document.getElementById("status").textContent=
+  "Tampilan berhasil! Mesin AI video akan kita hubungkan pada tahap berikutnya.";
+}
+</script>
+</body>
+</html>
